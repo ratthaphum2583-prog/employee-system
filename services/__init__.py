@@ -1,4 +1,10 @@
-from .employee import get_active_employees, find_employee_by_name, get_highest_salary_employee
+from .employee import (
+    get_active_employees, 
+    find_employee_by_name, 
+    get_highest_salary_employee,
+    find_employees_by_department
+)
+
 from .report import (
     build_employee_report, 
     build_employee_reports, 

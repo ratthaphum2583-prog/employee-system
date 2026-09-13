@@ -7,7 +7,8 @@ from services import (
     build_employee_reports,
     summarize_by_department,
     get_highest_bonus_employee,
-    calculate_average_by_department
+    calculate_average_by_department,
+    find_employees_by_department
 )
 from utils import format_employee_report
 
@@ -97,3 +98,22 @@ print("=== AVERAGE INCOME BY DEPARTMENT ===")
 average_income_by_department = calculate_average_by_department(department_summary, "total_income")
 for department, average in average_income_by_department.items():
     print(f"{department}: {average:.2f}")
+
+print()
+print("=== SEARCH BY DEPARTMENT ===")
+department1 = find_employees_by_department(employees, "IT")
+
+if not department1:
+    print("Employee not found")
+else:
+    for employee in department1:
+        print(employee["name"])
+
+print()
+department2 = find_employees_by_department(employees, "Marketing")
+
+if not department2:
+    print("Employee not found")
+else:
+    for employee in department2:
+        print(employee["name"])

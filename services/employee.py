@@ -24,3 +24,11 @@ def get_highest_salary_employee(employees):
             highest_salary = employee["salary"]
 
     return highest_employee
+
+def find_employees_by_department(employees, department):
+    employees_by_department = []
+    for employee in employees:
+        if employee["department"] == department:
+            employees_by_department.append(employee)
+
+    return employees_by_department
