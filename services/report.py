@@ -60,3 +60,13 @@ def get_highest_bonus_employee(employee_reports):
             highest_bonus = employee["bonus"]
 
     return highest_bonus_employee
+
+def calculate_average_salary_by_department(department_summary):
+    average_salary_by_department = {}
+
+    for department, summary in department_summary.items():
+        average = summary["total_salary"] / summary["employee_count"]
+
+        average_salary_by_department[department] = average
+
+    return average_salary_by_department

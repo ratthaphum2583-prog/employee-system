@@ -6,7 +6,8 @@ from services import (
     build_employee_report,
     build_employee_reports,
     summarize_by_department,
-    get_highest_bonus_employee
+    get_highest_bonus_employee,
+    calculate_average_salary_by_department
 )
 from utils import format_employee_report
 
@@ -70,6 +71,7 @@ print("=== HIGHEST BONUS ===")
 highest_bonus_employee = get_highest_bonus_employee(employee_reports)
 if highest_bonus_employee is None:
     print("Employee not found")
+    print()
 else:
     print("Highest Bonus Employee")
     print("Name:", highest_bonus_employee["name"])
@@ -77,3 +79,9 @@ else:
     print("Salary:", highest_bonus_employee["salary"])
     print("Bonus:", highest_bonus_employee["bonus"])
     print("Total Income:", highest_bonus_employee["total_income"])
+    print()
+
+print("=== AVERAGE SALARY BY DEPARTMENT ===")
+average_salary_by_department = calculate_average_salary_by_department(department_summary)
+for department, average in average_salary_by_department.items():
+    print(department,":", average)
