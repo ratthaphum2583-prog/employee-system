@@ -70,3 +70,13 @@ def calculate_average_salary_by_department(department_summary):
         average_salary_by_department[department] = average
 
     return average_salary_by_department
+
+def calculate_average_bonus_by_department(department_summary):
+    average_bonus_by_department = {}
+
+    for department, summary in department_summary.items():
+        average = summary["total_bonus"] / summary["employee_count"]
+
+        average_bonus_by_department[department] = average
+
+    return average_bonus_by_department
