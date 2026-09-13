@@ -17,6 +17,12 @@ def build_employee_report(employee):
 
     return employee_report
 
+def build_employee_report_if_found(employee):
+    if employee is None:
+        return None
+
+    return build_employee_report(employee)
+
 def build_employee_reports(employees):
     employee_reports = []
 

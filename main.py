@@ -2,16 +2,21 @@ from data import employees
 from services import (
     get_active_employees, 
     find_employee_by_name, 
-    get_highest_salary_employee, 
-    build_employee_report,
+    get_highest_salary_employee,
     build_employee_reports,
     summarize_by_department,
     get_highest_bonus_employee,
     calculate_average_by_department,
     find_employees_by_department,
-    get_top_earner_by_department
+    get_top_earner_by_department,
+    build_employee_report_if_found
 )
-from utils import format_employee_report
+from utils import (
+    format_employee_report, 
+    format_employee_names,
+    format_employee,
+    format_employee_summary
+)
 
 print("=== ACTIVE EMPLOYEES ===")
 active_employees = get_active_employees(employees)
@@ -21,37 +26,21 @@ for active_employee in active_employees:
 print()
 print("=== SEARCH EMPLOYEE ===")
 employee1 = find_employee_by_name(employees, "Game")
+print(format_employee(employee1))
+print()
 employee2 = find_employee_by_name(employees, "John")
-
-if employee1 is None:
-    print("Employee not found")
-else:
-    print(employee1)
-
-if employee2 is None:
-    print("Employee not found")
-else:
-    print(employee2)
+print(format_employee(employee2))
 
 print()
 print("=== HIGHEST SALARY ===")
 highest_employee = get_highest_salary_employee(employees)
-if highest_employee is None:
-    print("Employee not found")
-else:
-    print("Highest Salary Employee")
-    print("Name:", highest_employee["name"])
-    print("Department:", highest_employee["department"])
-    print("Salary:", highest_employee["salary"])
-    print()
+print(format_employee_summary(highest_employee))
+print()
 
 print("=== EMPLOYEE REPORT ===")
-if employee1 is None:
-    print("Employee not found")
-else:
-    employee_report = build_employee_report(employee1)
-    print(format_employee_report(employee_report))
-    print()
+employee_report = build_employee_report_if_found(employee1)
+print(format_employee_report(employee_report))
+print()
 
 print("=== ALL EMPLOYEE REPORTS ===")
 employee_reports = build_employee_reports(employees)
@@ -71,17 +60,8 @@ for department, summary in department_summary.items():
 
 print("=== HIGHEST BONUS ===")
 highest_bonus_employee = get_highest_bonus_employee(employee_reports)
-if highest_bonus_employee is None:
-    print("Employee not found")
-    print()
-else:
-    print("Highest Bonus Employee")
-    print("Name:", highest_bonus_employee["name"])
-    print("Department:", highest_bonus_employee["department"])
-    print("Salary:", highest_bonus_employee["salary"])
-    print("Bonus:", highest_bonus_employee["bonus"])
-    print("Total Income:", highest_bonus_employee["total_income"])
-    print()
+print(format_employee_report(highest_bonus_employee))
+print()
 
 print("=== AVERAGE SALARY BY DEPARTMENT ===")
 average_salary_by_department = calculate_average_by_department(department_summary, "total_salary")
@@ -103,21 +83,11 @@ for department, average in average_income_by_department.items():
 print()
 print("=== SEARCH BY DEPARTMENT ===")
 department1 = find_employees_by_department(employees, "IT")
-
-if not department1:
-    print("Employee not found")
-else:
-    for employee in department1:
-        print(employee["name"])
+print(format_employee_names(department1))
 
 print()
 department2 = find_employees_by_department(employees, "Marketing")
-
-if not department2:
-    print("Employee not found")
-else:
-    for employee in department2:
-        print(employee["name"])
+print(format_employee_names(department2))
 
 print()
 print("=== TOP EARNER BY DEPARTMENT ===")

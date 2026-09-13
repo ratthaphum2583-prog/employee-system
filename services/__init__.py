@@ -11,5 +11,6 @@ from .report import (
     summarize_by_department, 
     get_highest_bonus_employee,
     calculate_average_by_department,
-    get_top_earner_by_department
+    get_top_earner_by_department,
+    build_employee_report_if_found
 )
