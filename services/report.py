@@ -61,32 +61,11 @@ def get_highest_bonus_employee(employee_reports):
 
     return highest_bonus_employee
 
-def calculate_average_salary_by_department(department_summary):
-    average_salary_by_department = {}
-
+def calculate_average_by_department(department_summary, total_key):
+    average_by_department = {}
     for department, summary in department_summary.items():
-        average = summary["total_salary"] / summary["employee_count"]
+        average = summary[total_key] / summary["employee_count"]
 
-        average_salary_by_department[department] = average
+        average_by_department[department] = average
 
-    return average_salary_by_department
-
-def calculate_average_bonus_by_department(department_summary):
-    average_bonus_by_department = {}
-
-    for department, summary in department_summary.items():
-        average = summary["total_bonus"] / summary["employee_count"]
-
-        average_bonus_by_department[department] = average
-
-    return average_bonus_by_department
-
-def calculate_average_income_by_department(department_summary):
-    average_income_by_department = {}
-
-    for department, summary in department_summary.items():
-        average = summary["total_income"] / summary["employee_count"]
-
-        average_income_by_department[department] = average
-
-    return average_income_by_department
+    return average_by_department
