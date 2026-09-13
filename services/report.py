@@ -69,3 +69,19 @@ def calculate_average_by_department(department_summary, total_key):
         average_by_department[department] = average
 
     return average_by_department
+
+
+def get_top_earner_by_department(employee_reports):
+    top_earners = {}
+
+    for employee in employee_reports:
+        department = employee["department"]
+        total_income = employee["total_income"]
+
+        if department not in top_earners:
+            top_earners[department] = employee
+        else:
+            if total_income > top_earners[department]["total_income"]:
+                top_earners[department] = employee
+
+    return top_earners

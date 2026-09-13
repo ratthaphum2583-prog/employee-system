@@ -8,7 +8,8 @@ from services import (
     summarize_by_department,
     get_highest_bonus_employee,
     calculate_average_by_department,
-    find_employees_by_department
+    find_employees_by_department,
+    get_top_earner_by_department
 )
 from utils import format_employee_report
 
@@ -117,3 +118,9 @@ if not department2:
 else:
     for employee in department2:
         print(employee["name"])
+
+print()
+print("=== TOP EARNER BY DEPARTMENT ===")
+top_earners = get_top_earner_by_department(employee_reports)
+for department, earner in top_earners.items():
+    print(f"{department}: {earner['name']} - {earner['total_income']:.2f}")
