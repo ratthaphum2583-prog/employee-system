@@ -8,7 +8,8 @@ from services import (
     summarize_by_department,
     get_highest_bonus_employee,
     calculate_average_salary_by_department,
-    calculate_average_bonus_by_department
+    calculate_average_bonus_by_department,
+    calculate_average_income_by_department
 )
 from utils import format_employee_report
 
@@ -85,10 +86,16 @@ else:
 print("=== AVERAGE SALARY BY DEPARTMENT ===")
 average_salary_by_department = calculate_average_salary_by_department(department_summary)
 for department, average in average_salary_by_department.items():
-    print(department,":", average)
+    print(f"{department}: {average:.2f}")
 
 print()
 print("=== AVERAGE BONUS BY DEPARTMENT ===")
 average_bonus_by_department = calculate_average_bonus_by_department(department_summary)
 for department, average in average_bonus_by_department.items():
-    print(department,":", average)
+    print(f"{department}: {average:.2f}")
+
+print()
+print("=== AVERAGE INCOME BY DEPARTMENT ===")
+average_income_by_department = calculate_average_income_by_department(department_summary)
+for department, average in average_income_by_department.items():
+    print(f"{department}: {average:.2f}")

@@ -5,5 +5,6 @@ from .report import (
     summarize_by_department, 
     get_highest_bonus_employee,
     calculate_average_salary_by_department,
-    calculate_average_bonus_by_department
+    calculate_average_bonus_by_department,
+    calculate_average_income_by_department
 )
