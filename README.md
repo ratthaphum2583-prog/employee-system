@@ -94,6 +94,18 @@ Sales: Game - 38500.00
 - Git
 - GitHub
 
+## Current Limitations
+
+- Employee data is currently stored directly in `data.py`
+- The program currently uses predefined employee data and search examples
+- Data is not persisted to a database or external file
+
+## Future Improvements
+
+- Add interactive employee input
+- Add persistent data storage
+- Add automated tests
+
 ## Purpose
 
 This project was created as part of my Python learning journey to practice building a small application with a structured codebase instead of writing all logic in a single file.
