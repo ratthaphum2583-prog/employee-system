@@ -91,3 +91,23 @@ def get_top_earner_by_department(employee_reports):
                 top_earners[department] = employee
 
     return top_earners
+
+def find_minimum_total_income(employee_reports, minimum_income):
+    total_income_reports = []
+
+    for employee in employee_reports:
+        total_income = employee["total_income"]
+
+        if total_income >= minimum_income:
+            total_income_reports.append(employee)
+
+    for i in range(len(total_income_reports)):
+        max_income = i
+
+        for j in range(i + 1 , len(total_income_reports)):
+            if total_income_reports[j]["total_income"] > total_income_reports[max_income]["total_income"]:
+                max_income = j
+
+        total_income_reports[i], total_income_reports[max_income] = total_income_reports[max_income], total_income_reports[i]
+
+    return total_income_reports

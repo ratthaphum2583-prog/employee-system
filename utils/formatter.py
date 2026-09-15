@@ -42,3 +42,14 @@ def format_employee_summary(employee):
         f"Department: {employee['department']}\n"
         f"Salary: {employee['salary']}"
     )
+
+def format_minimum_income(employees):
+    if not employees:
+        return "Employee not found"
+
+    employee_incomes = []
+
+    for employee in employees:
+        employee_incomes.append(f"{employee['name']} - {employee['total_income']:.2f}")
+
+    return "\n".join(employee_incomes)

@@ -9,13 +9,15 @@ from services import (
     calculate_average_by_department,
     find_employees_by_department,
     get_top_earner_by_department,
-    build_employee_report_if_found
+    build_employee_report_if_found,
+    find_minimum_total_income
 )
 from utils import (
     format_employee_report, 
     format_employee_names,
     format_employee,
-    format_employee_summary
+    format_employee_summary,
+    format_minimum_income
 )
 
 print("=== ACTIVE EMPLOYEES ===")
@@ -94,3 +96,10 @@ print("=== TOP EARNER BY DEPARTMENT ===")
 top_earners = get_top_earner_by_department(employee_reports)
 for department, earner in top_earners.items():
     print(f"{department}: {earner['name']} - {earner['total_income']:.2f}")
+
+print()
+print("=== SEARCH BY INCOME ===")
+minimum_income = 30000
+income_report = find_minimum_total_income(employee_reports, minimum_income)
+print(format_minimum_income(income_report))
+print()
