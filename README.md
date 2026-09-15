@@ -13,6 +13,8 @@ A Python employee management project for practicing data processing, business lo
 - Calculate average salary, bonus, and total income by department
 - Find the employee with the highest bonus
 - Find the top earner in each department
+- Search employees by minimum total income
+- Sort matching employees by total income from highest to lowest
 
 ## Bonus Rules
 
